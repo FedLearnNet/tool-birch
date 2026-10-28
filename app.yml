@@ -110,8 +110,8 @@ config:
     type: CSV
 info:
   longDescription: null
-  name: tool-birch
+  name: birch
   shortDescription: Clusters numeric tabular data with BIRCH and exports sample labels, subcluster centers, and a summary report.
-  slug: tool-birch
+  slug: birch
   sourceUrl: https://github.com/FedLearnNet/tool-birch
   type: SELF_LEARNED

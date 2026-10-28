@@ -1,4 +1,4 @@
-# tool-birch
+# birch
 
 Clusters numeric tabular data with BIRCH and exports sample labels, subcluster centers, and a summary report.
 
