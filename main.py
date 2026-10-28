@@ -1,0 +1,10 @@
+from pyfedappwrap.engine.runtime import FedDBEngine
+
+from app import BirchAPP
+
+engine = FedDBEngine()
+engine.register(BirchAPP())
+
+if __name__ == '__main__':
+    engine.start()
+    engine.wait_until_stop()

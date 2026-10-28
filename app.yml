@@ -1,0 +1,117 @@
+config:
+  hyperparams:
+  - default: '0.5'
+    description: Radius threshold for merging subclusters (smaller => more
+      clusters/subclusters).
+    maxValue: null
+    minValue: 0.0
+    name: threshold
+    options: []
+    pattern: null
+    type: FLOAT
+  - default: '50'
+    description: Maximum number of CF subclusters in each node of the CF tree.
+    maxValue: 1000.0
+    minValue: 2.0
+    name: branching_factor
+    options: []
+    pattern: null
+    type: INTEGER
+  - default: '1'
+    description: If true, run a final global clustering step; if false, set
+      n_clusters=None (no global clustering).
+    maxValue: null
+    minValue: null
+    name: use_global_clustering
+    options: []
+    pattern: null
+    type: BOOLEAN
+  - default: '3'
+    description: Number of clusters for the final global clustering step (used
+      only if use_global_clustering=true).
+    maxValue: 200.0
+    minValue: 2.0
+    name: n_clusters
+    options: []
+    pattern: null
+    type: INTEGER
+  - default: '1'
+    description: Whether to compute labels for each sample after fitting.
+    maxValue: null
+    minValue: null
+    name: compute_labels
+    options: []
+    pattern: null
+    type: BOOLEAN
+  - default: '1'
+    description: Standardize features to zero mean / unit variance before
+      clustering (recommended).
+    maxValue: null
+    minValue: null
+    name: standardize
+    options: []
+    pattern: null
+    type: BOOLEAN
+  input:
+  - delimiter: null
+    description: Tabular feature matrix. Rows = samples, columns = numeric
+      features. If you have an ID column, place it as the first column named id;
+      otherwise sample indices will be used.
+    hasHeader: true
+    maxValue: null
+    minValue: null
+    name: features
+    required: true
+    shape: null
+    tabularSchema:
+      allowOnlyNumbers: null
+      columns: null
+      maxColumns: null
+      maxRows: null
+      minColumns: null
+      minRows: null
+      nullPolicy: null
+      prohibitedNulls: false
+      requiredColumns: null
+    type: CSV
+  output:
+  - delimiter: null
+    description: Centers of BIRCH subclusters (subcluster_centers_).
+      Rows=subclusters, columns=features.
+    hasHeader: null
+    maxValue: null
+    minValue: null
+    name: subcluster_centers
+    required: false
+    shape: null
+    tabularSchema: null
+    type: CSV
+  - delimiter: null
+    description: Lightweight HTML summary with params, number of subclusters,
+      and cluster size statistics.
+    hasHeader: null
+    maxValue: null
+    minValue: null
+    name: report
+    required: false
+    shape: null
+    tabularSchema: null
+    type: HTML
+  - delimiter: null
+    description: "Cluster assignments per sample. Columns: [id?, label]. If no 'id'
+      column was provided, 'index' is used."
+    hasHeader: null
+    maxValue: null
+    minValue: null
+    name: labels
+    required: false
+    shape: null
+    tabularSchema: null
+    type: CSV
+info:
+  longDescription: null
+  name: tool-birch
+  shortDescription: Clusters numeric tabular data with BIRCH and exports sample labels, subcluster centers, and a summary report.
+  slug: tool-birch
+  sourceUrl: https://github.com/FedLearnNet/tool-birch
+  type: SELF_LEARNED
